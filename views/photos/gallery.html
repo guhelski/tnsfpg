@@ -1,0 +1,82 @@
+<section>
+  {{#if photos}}
+    <ul class="gallery">
+      {{#each photos }}
+          <li class="gallery-photo"><img src="/photos/{{path}}"></li>
+      {{/each}}
+    </ul>
+
+    <span class="navigation prev pull-left" id="prev">Previous</span>
+    <span class="navigation next pull-right" id="next">Next</span>
+
+    <div class="counter">
+      <span class="current">1</span>
+      /
+      <span class="total"></span>
+    </div>
+  {{else}}
+    <section class="jumbotron">
+      <h1>Hey there!</h1>  
+      <h2>Looks like there's no photos yet.</h2>
+      <h3>Why don't you <a class="btn btn-lg btn-success" href="/add">add</a> one?</h3>
+    </section>
+  {{/if}}
+</section>
+<script src="/js/jquery-2.1.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    showCounter();
+
+    $('.next').on('click', function() {
+      if (getCurrent() < getTotal()) {
+        getNext();
+      }
+    });
+
+    $('.prev').on('click', function() {
+      if (getCurrent() >= 2) {
+        getPrev();
+      }
+    });
+  });
+
+  function showCounter() {
+    $('.counter .total').text(getTotal()); 
+  }
+
+  function getTotal() {
+    return $('.gallery .gallery-photo').length;
+  }
+
+  function getCurrent() {
+    return parseInt($('.counter .current').text(), 10);
+  }
+
+  function updateCounter(extent) {
+    var $current = getCurrent();
+    extent == 'up' ? $('.counter .current').text($current += 1) : $('.counter .current').text($current -= 1);
+  }
+
+  function getNext() {
+    var $currentImage = $('.gallery .gallery-photo:visible');
+    if ($currentImage.next().length) {
+      updateCounter('up');
+      transition($currentImage, $currentImage.next());
+    }
+  }
+
+  function getPrev() {
+    var $currentImage = $('.gallery .gallery-photo:visible');
+    if ($currentImage.prev().length) {
+      updateCounter('down');
+      transition($currentImage, $currentImage.prev());
+    }
+  }
+
+  function transition($curr, $next) {
+    $next.css('z-index', 2).stop(true, true).fadeIn('fast', function() {
+      $curr.hide().css('z-index', 0).removeClass('current');
+      $next.css('z-index', 1).addClass('current');
+    });
+  }
+</script>

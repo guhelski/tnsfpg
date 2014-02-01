@@ -1,0 +1,20 @@
+{
+  "name": "tnsfpg",
+  "description": "The Not So Fancy Photo Gallery",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.8",
+    "hbs": "*",
+    "connect-flash": "0.1.1",
+    "zombie": "2.0.0-alpha24",
+    "mocha": "1.17.1"
+  },
+  "subdomain": "tnsfpg",
+  "engines": {
+    "node": "0.10.x"
+  }
+}

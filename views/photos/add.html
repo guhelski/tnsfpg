@@ -1,0 +1,12 @@
+<section class="jumbotron">
+  <h2>Add a new photo</h2>
+  
+  <form method="post" enctype="multipart/form-data">
+    <fieldset>
+      <legend>Just choose an image file and click add.</legend>
+      <label for="photo-upload">We play nice with .jpg, .jpeg, .png and .gif files.</label>
+      <input type="file" id="photo-upload" class="upload" name="photo[image]" accept="image/jpeg,image/png,image/gif" required>
+    </fieldset>  
+    <button class="btn btn-lg btn-success" type="submit">Add</button> 
+  </form>
+</section>

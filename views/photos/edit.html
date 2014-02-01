@@ -1,0 +1,14 @@
+<section class="jumbotron">
+  <h2>Edit photo</h2>
+
+  <form method="post" enctype="multipart/form-data">
+    <fieldset>
+      <legend>Change the photo name and click save.</legend>
+      <input type="hidden" name="photo[original]" value="{{name}}.{{extension}}">  
+      <label for="photo-name">New name:</label>
+      <input id="photo-name" class="image-edit" type="text" name="photo[rename]" value="{{name}}" required>
+      <span>.{{extension}}</span>
+    </fieldset>  
+    <button class="btn btn-lg btn-success" type="submit">Save</button>
+  </form>
+</section>

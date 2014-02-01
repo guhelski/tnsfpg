@@ -1,0 +1,22 @@
+<section>
+{{#if photos }}  
+  <ul class="list-group">
+    {{#each photos }}
+      <li class="photo list-group-item">
+        <img src="/photos/{{path}}">
+        <span class="photo-item-name">{{name}}</span>
+        <span class="photo-item-action">
+          <a class="photo-item-action-edit btn btn-primary" href="/edit/{{path}}">Edit</a>
+          <a class="photo-item-action-remove btn btn-danger" href="/remove/{{path}}">Remove</a>
+        </span>  
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <section class="jumbotron">
+    <h1>Hey there!</h1>  
+    <h2>Looks like there's no photos yet.</h2>
+    <h3>Why don't you <a class="btn btn-lg btn-success" href="/add">add</a> one?</h3>
+  </section>
+{{/if}}      
+</section>
