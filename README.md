@@ -21,7 +21,7 @@ If everything goes well, now you can point your browser to `http://localhost:300
 
 How to test
 --------------
-Tests use [Zombie.js](http://zombie.labnotes.org/) and [Mocha](http://visionmedia.github.io/mocha/), you can run them all with:
+Tests use [Zombie.js](http://zombie.labnotes.org/) and [Mocha](http://mochajs.org/), you can run them all with:
 ```
 make test
 ```
